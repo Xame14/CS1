@@ -84,3 +84,14 @@ float sales_tax (float a,float b,float c,float d,float e)
    
     
 }
+
+//*********************************************************************************************************************
+
+int Recite()
+{
+    // Create and open a text file
+    ofstream MyFile("Recipt.txt");
+    // Write to the file
+    MyFile << 
+    // Close the file
+    MyFile.close();
