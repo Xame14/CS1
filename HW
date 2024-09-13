@@ -1,0 +1,86 @@
+////////////////////////////////////////////////////////////////
+// Name: Write your name
+// Date: When did you finish?
+// Class: CSCI 1470.04
+// Semester: Fall 2024
+// Instructor: Dr. Jonatan Reyes
+//
+// Program Name: Add a name for this program
+// Program Description: Brief description of program
+////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <algorithm> // For transform function
+#include <cctype> // For toupper function
+using namespace std;
+
+float sales_tax (float a,float b,float c,float d,float e);
+
+
+ 
+int main()
+{
+    string name;
+    string i1;
+    string i2;
+    string i3;
+    string i4;
+    string i5;
+    float p1,p2,p3,p4,p5;
+    
+    cout << "Please enter employee name: ";
+    getline (cin,name);
+    cout <<endl<< "Enter 5 items and prices, if less than five enter '-' for item and '0' for price." <<endl << endl;
+    
+    //item 1 
+    cout << "Please enter item #1: ";
+    getline (cin, i1);
+    cout << "Please enter price: ";
+    cin >> p1;
+    cin.ignore();
+    
+    //item 2
+    cout << endl << "Please enter item #2: ";
+    getline (cin, i2);
+    cout << "Please enter price: ";
+    cin >> p2;
+    cin.ignore();
+    
+    //item 3
+    cout << endl << "Please enter item #3: ";
+    getline (cin, i3);
+    cout << "Please enter price: ";
+    cin >> p3;
+    cin.ignore();
+    
+    //item 4
+    cout << endl << "Please enter item #4: ";
+    getline (cin, i4);
+    cout << "Please enter price: ";
+    cin >> p4;
+    cin.ignore();
+    
+    //item 5
+    cout << endl << "Please enter item #5: ";
+    getline (cin, i5);
+    cout << "Please enter price: ";
+    cin >> p5;
+    
+    cout << endl << showpoint<<setprecision(2)<<fixed<<sales_tax (p1,p2,p3,p4,p5);
+    
+    return 0;
+}
+
+float sales_tax (float a,float b,float c,float d,float e)
+{
+   float tax = .15;
+   float taxed;
+   float total;
+   taxed =  (a+b+c+d+e) * tax;
+   total = taxed + (a+b+c+d+e);
+   return total;
+   
+    
+}
