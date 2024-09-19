@@ -65,7 +65,7 @@ int main()
 	ght = subtotal * .15;
     total = ght + subtotal;
 	
-	cout << endl << showpoint<<setprecision(2)<<fixed<<ght;
+	recipt(p1,p2,p3,p4,p5,i1,i2,i3,i4,i5,ght,total,subtotal);
 
 
 	return 0;
