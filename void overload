@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+void swapin(float& x, float& y);
+void multiply(int x,int y);
+void multiply(int a,int b,int c);
+void multiply(float j, float k);
+void multiply(float a, float b,float c);
+
+
+int main()
+{
+    float num1, num2;
+    
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+    
+    swapin(num1, num2);
+    
+    cout << "First number is "<<num1<<" second number is "<<num2<<"."<<endl;
+    
+    cout<<"Multiply time!"<<endl
+
+    return 0;
+}
+
+void swapin(float& x, float& y)
+{
+   float swap = x; 
+   x = y;
+   y = swap;
+
+}
+
+void multiply(int x,int y)
+{
+  x * y 
+   
+}
+
+void multiply(int a,int b,int c)
+{
+    
+    
+}
+
+void multiply(float j,float k)
+{
+    
+    
+}
+
+void multiply(float a,float b,float c)
+{
+
+
+}
