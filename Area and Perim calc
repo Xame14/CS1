@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+const double PI = 3.141592;
+const string prof_name = "Miss. Valdez";
+
+void compute_area_perimeter(double a,double b);
+void compute_area_perimeter(double c,double d,double e)
+void compute_area_perimeter
+void compute_area_perimeter
+
+void wel();
+
+int main()
+{
+    wel();
+   
+    //square and rectangle
+    //change the values of a and b
+    double a = 3.21
+    double b = 6.14
+    compute_area_perimeter(a,b)
+    
+    //triangle
+}
+
+void wel()
+{
+    cout<<"Wellcome "<<prof_name<<", this is my shape calulator that calculates" <<endl<<"the area and perimeter of a square, rectangle, circle and triangle!";
+}
+
+void compute_area_perimeter(double a,double b)
+{
+    double perimeter = 2*(a+b);
+    double area = a*b
+    cout<<"The area is "<<showpoint<<setprecision(3)<<fixed<<area<<" and the perimeter is "<<showpoint<<setprecision(2)<<fixed<<perimeter<<".";
+}
