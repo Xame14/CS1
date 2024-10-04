@@ -1,0 +1,87 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+using namespace std;
+
+void flag_controlled_loop();
+void pause();
+void clear_screen();
+void counterNflag_controlled_loop();
+int randNumGen(int upper, int lower);
+
+
+int main()
+{
+    flag_controlled_loop();
+    pause();
+    clear_screen();
+    counterNflag_controlled_loop();
+
+    return 0;
+}
+
+void flag_controlled_loop()
+{
+    char r;
+    bool correct = false;
+    
+    while(correct != true){
+        cout<<"Do you like icecream? (y or n): ";
+        cin>>r;
+        if (r != 'y')
+            if (r != 'n')
+                cout<<"Incorrect"<<endl;
+        if (r == 'y' || r == 'n'){
+            cout<<"Thanks!";
+            ic = true;
+        }
+    }
+    while(correct != true){
+        cout<<""
+    }
+}
+
+void pause()
+{
+    cout<<"Press Enter to continue...";
+    cin.sync();
+    cin.ignore();
+    cin.get();
+}
+
+void clear_screen()
+{
+    cout<<"\033[0;0H\033[2J";
+
+}
+
+void counterNflag_controlled_loop()
+{
+    int n,g;
+    int c = 0;
+    n = rand() % 100 + 1;
+    while (gs != true && c < 5){
+        cout<<"Guess a number the computer randomly picked between 1 - 100: ";
+        cin>>g;
+        if(g != n){
+            if (g > n)
+                cout<<"Sorry, your guess is to high."<<endl;
+            if (g < n)
+               cout<<"Sorry, your guess is to low."<<endl;
+            c = c + 1;
+        }
+        else{
+            cout<<"You guessed right, you win!"
+            c = c + 5;
+        }
+    if (c == 5)
+        cout<<"Sorry you lost. The answer is: "<<n;
+    }
+    
+}
