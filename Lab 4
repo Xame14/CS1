@@ -21,9 +21,11 @@ int main()
 void flag_controlled_loop()
 {
     char r;
+    int age;
     bool correct = false;
+    bool ic = false;
     
-    while(correct != true){
+    while(ic == false){
         cout<<"Do you like icecream? (y or n): ";
         cin>>r;
         if (r != 'y')
@@ -34,8 +36,18 @@ void flag_controlled_loop()
             ic = true;
         }
     }
-    while(correct != true){
-        cout<<""
+    while(correct == false){
+        cout<<"Enter your age as a number: ";
+        cin >> age;
+        if ( !cin ){
+        cin.clear();
+        cin.ignore(2000, '\n');
+        }
+        else{
+            cout<< "Got it"<<endl;
+            correct = true;   
+        }
+
     }
 }
 
@@ -57,23 +69,25 @@ void counterNflag_controlled_loop()
 {
     int n,g;
     int c = 0;
-    n = rand() % 100 + 1;
-    while (gs != true && c < 5){
+    n = r
+    bool gs = false;
+    while (gs == false && c < 5){
         cout<<"Guess a number the computer randomly picked between 1 - 100: ";
         cin>>g;
         if(g != n){
             if (g > n)
-                cout<<"Sorry, your guess is to high."<<endl;
+                cout<<"Sorry, your guess is too high."<<endl;
             if (g < n)
-               cout<<"Sorry, your guess is to low."<<endl;
+               cout<<"Sorry, your guess is too low."<<endl;
             c = c + 1;
         }
         else{
-            cout<<"You guessed right, you win!"
+            cout<<"You guessed right, you win!";
             c = c + 5;
         }
     if (c == 5)
         cout<<"Sorry you lost. The answer is: "<<n;
     }
+    
     
 }
