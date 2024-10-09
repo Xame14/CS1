@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int rw, cm;
+    int i = 0;
+    int c = 0;
+    
+    cout<<"How many columns are in the plane: ";
+    cin>>cm;
+    cout<<"How many rows are in the plane: ";
+    cin>>rw;
+    while(i < cm && c < rw){
+        i = i + 1;
+        cout<<endl;
+        for (char p = 'A'; p <= 'Z'; p++){
+            cout<<i<<p<<" ";
+        }
+    }
+
+    return 0;
+}
