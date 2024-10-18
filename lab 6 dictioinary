@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	cout<<"*************************\nWelcome to spell checker!\n*************************"<<endl;
+	const int SIZE = 3;
+	string sc[SIZE];
+	string st;
+	int n = 0;
+	int z = 0;
+	string inp;
+	bool pos = false;
+	int p = 0;
+	int t = 0;
+
+
+	for(int i = 0; i < SIZE; i++) {			
+	    ifstream rmy("dictionary.txt");
+			getline(rmy, st);
+			sc[n] = st;
+		}
+		n = n + 1;
+	}
+	while(z < 10){
+	    cout<<sc[z];
+	    z = z + 1;
+	}
+
+
+	while(!pos) {
+		cout<<"Please enter a word: ";
+		cin>>inp;
+		if(sc[p] == inp) {
+
+			cout<<"This word is spelled correctly!";
+
+		}
+		else {
+			pos = true;
+			t++;
+			cout<<"Oops! It looks like '"<<inp<<"' isn't quite right. No worries, \nyou're doing great let's try spelling it again."<<endl<<endl;
+		}
+		if(t = 2)
+	}
+		//cout<<"Oops! It looks like '"<<inp<<"' isn't quite right. No worries, \nyou're doing great let's try spelling it again."<<endl<<endl;
+
+	
+
+	return 0;
+}
