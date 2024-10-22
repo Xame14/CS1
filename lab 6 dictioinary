@@ -4,49 +4,48 @@ using namespace std;
 
 int main()
 {
-	cout<<"*************************\nWelcome to spell checker!\n*************************"<<endl;
-	const int SIZE = 3;
+    cout<<"*************************\nWelcome to spell checker!\n*************************"<<endl;
+	const int SIZE = 14; //change to any size 
 	string sc[SIZE];
-	string st;
-	int n = 0;
-	int z = 0;
 	string inp;
 	bool pos = false;
-	int p = 0;
 	int t = 0;
+	int p = 0;
 
-
+    ifstream rmy("dictionary.txt");
 	for(int i = 0; i < SIZE; i++) {			
-	    ifstream rmy("dictionary.txt");
-			getline(rmy, st);
-			sc[n] = st;
-		}
-		n = n + 1;
+			rmy >> sc[i];
 	}
-	while(z < 10){
-	    cout<<sc[z];
-	    z = z + 1;
-	}
+	
+	
+	//for(int z = 0; z < 10;z++)
+	    //cout<<sc[z];
 
 
-	while(!pos) {
+	while(pos == false) {
 		cout<<"Please enter a word: ";
 		cin>>inp;
-		if(sc[p] == inp) {
-
-			cout<<"This word is spelled correctly!";
-
+		for(int c = 1; c <= SIZE; c++) {  //sequential
+			if(sc[c] == inp){
+			    cout<<"This word is spelled correctly!"<<endl<<endl;
+			    break;
+			}
+			
+			else if(c == SIZE && sc[c] != inp){
+			    cout<<"Oops! It looks like '"<<inp<<"' isn't quite right. No worries, ";
+                cout<<"you're doing great let's try spelling it again."<<endl<<endl;
+			    t++;
+			}
 		}
-		else {
-			pos = true;
-			t++;
-			cout<<"Oops! It looks like '"<<inp<<"' isn't quite right. No worries, \nyou're doing great let's try spelling it again."<<endl<<endl;
+		
+		if(t == 2){
+		    cout<<"You have reached the maximum number of misspelled words allowed. Thank you for using this application";
+            break;
 		}
-		if(t = 2)
 	}
-		//cout<<"Oops! It looks like '"<<inp<<"' isn't quite right. No worries, \nyou're doing great let's try spelling it again."<<endl<<endl;
-
+            
 	
 
-	return 0;
+
+    return 0;
 }
