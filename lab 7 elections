@@ -1,0 +1,61 @@
+#include <iostream>
+#include<fstream>
+#include<iomanip>
+#include<cstring>
+
+using namespace std;
+
+const int NUM_CANDIDATES = 10;
+
+int sumList(const int list[], int size);
+int indexOfMax(const int list[], int size);
+// This function gets the results from the file and returns them in the corresponding
+void getElectionData(ifstream & iFile, string candidates[], int ballots[], int & count);
+void printResults(const string candidates[], const int ballots[], int count, int totalBallots);
+
+int main()
+{
+    ifstream inFile;
+	string names[NUM_CANDIDATES];	// The names of the candidates
+	int max;				    	// number of candidates processed
+    int votes[NUM_CANDIDATES];	   	// The number of votes received by each candidate
+	int totalVotes;					// number of votes received by all candidateThe totals
+    
+    inFile.open("votingresults.txt");
+    
+    if (!inFile)
+	{
+		cout << "File not found!" << endl << endl;
+		return 1;
+	}
+    
+    getElectionData(inFile, names, votes, max);
+    
+    totalVotes = sumList(votes, NUM_CANDIDATES);
+    cout<<totalVotes;
+	
+    return 0;
+}
+
+int sumList(const int list[], int size)
+{
+    int total = 0;
+    for(int i = 0; i < size; i++){
+        total = total + list[i];
+    }
+    return total;
+}
+
+int indexOfMax(const int list[], int size)
+{
+    
+}
+void getElectionData(ifstream & iFile, string candidates[], int ballots[], int & count)
+{	
+	int i = 0;
+	
+	while(i < NUM_CANDIDATES){
+        iFile >> candidates[i] >> ballots[i];
+        i++;
+	}
+}
