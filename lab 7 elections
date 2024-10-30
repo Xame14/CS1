@@ -75,8 +75,8 @@ void getElectionData(ifstream & iFile, string candidates[], int ballots[], int &
 void printResults(const string candidates[], const int ballots[], int count, int totalBallots)
 {
     int w_spot = indexOfMax(ballots,NUM_CANDIDATES);
-    double perc = 0;
-    int VoteS = 0;
+    double perc;
+    double VoteS = 0;
     int tv = totalBallots;
     cout<<right<<setw(12)<<"Candidates "
         <<right<<setw(12)<<"Num Votes "
@@ -84,7 +84,7 @@ void printResults(const string candidates[], const int ballots[], int count, int
         
     for(int i = 0; i < NUM_CANDIDATES; i++){
         VoteS = ballots[i];
-        perc = VoteS / tv;
+        perc = (VoteS/tv) * 100;
         cout<<right<<setw(11)<<candidates[i]
             <<right<<setw(12)<<ballots[i]
             <<showpoint<<setprecision(2)<<fixed<<right<<setw(12)<<perc<<endl;
