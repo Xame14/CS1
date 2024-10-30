@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int NUM_CANDIDATES = 10;
+const int NUM_CANDIDATES = 6;
 
 int sumList(const int list[], int size);
 int indexOfMax(const int list[], int size);
@@ -17,7 +17,7 @@ int main()
 {
     ifstream inFile;
 	string names[NUM_CANDIDATES];	// The names of the candidates
-	int max;				    	// number of candidates processed
+	int max = 0;				    	// number of candidates processed
     int votes[NUM_CANDIDATES];	   	// The number of votes received by each candidate
 	int totalVotes;					// number of votes received by all candidateThe totals
     
@@ -32,9 +32,6 @@ int main()
     getElectionData(inFile, names, votes, max);
     
     totalVotes = sumList(votes, NUM_CANDIDATES);
-    cout<<totalVotes;
-    
-    int w_spot = indexOfMax(votes,NUM_CANDIDATES);
     
     printResults(names,votes,max,totalVotes);
 	
@@ -53,19 +50,22 @@ int sumList(const int list[], int size)
 int indexOfMax(const int list[], int size)
 {
     int most = list[0];
+    int spot = 0;
     int i = 1;
     while (i < size){
         if (list[i] > most) {
             most = list[i];
-            ++i;
+            spot = i;
+            i++;
         }
-        return i;
+        else
+            i++;
     }
+    return spot;
 }    
 void getElectionData(ifstream & iFile, string candidates[], int ballots[], int & count)
 {	
 	int i = 0;
-	
 	while(i < NUM_CANDIDATES){
         iFile >> candidates[i] >> ballots[i];
         i++;
@@ -75,6 +75,9 @@ void getElectionData(ifstream & iFile, string candidates[], int ballots[], int &
 void printResults(const string candidates[], const int ballots[], int count, int totalBallots)
 {
     int w_spot = indexOfMax(ballots,NUM_CANDIDATES);
+    cout<<"Candidates ";
+    cout<<"Num Votes ";
+    cout<<"% of Votes ";
     
     cout<<"The winner is: "<< candidates[w_spot];
     
