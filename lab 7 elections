@@ -36,7 +36,7 @@ int main()
     
     int w_spot = indexOfMax(votes,NUM_CANDIDATES);
     
-    printResults(names,vote,max,totalVotes)
+    printResults(names,votes,max,totalVotes);
 	
     return 0;
 }
@@ -53,11 +53,13 @@ int sumList(const int list[], int size)
 int indexOfMax(const int list[], int size)
 {
     int most = list[0];
-    for (int i = 1; i < size; ++i){
+    int i = 1;
+    while (i < size){
         if (list[i] > most) {
             most = list[i];
+            ++i;
         }
-    return i;
+        return i;
     }
 }    
 void getElectionData(ifstream & iFile, string candidates[], int ballots[], int & count)
@@ -72,7 +74,8 @@ void getElectionData(ifstream & iFile, string candidates[], int ballots[], int &
 
 void printResults(const string candidates[], const int ballots[], int count, int totalBallots)
 {
-    int w_spot = indexOfMax(votes,NUM_CANDIDATES);
+    int w_spot = indexOfMax(ballots,NUM_CANDIDATES);
     
+    cout<<"The winner is: "<< candidates[w_spot];
     
 }
