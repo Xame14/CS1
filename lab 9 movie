@@ -36,15 +36,25 @@ int main()
     char ans;
     int pos;
 
-    findMovieTitle(movie_list, MOVIES_SIZE, uit);
+
     do
 	{
 		cout << "\033[0;0H\033[2J";
+		sortMoviesTitle(movie_list, MOVIES_SIZE);
 		printMoviesArray(movie_list,MOVIES_SIZE);
-        cout<<endl<<"Enter a movie tital: ";
+        cout<<endl<<"Enter a movie title: ";
         cin>>uit;
         pos = findMovieTitle(movie_list,MOVIES_SIZE, uit);
-        cout << pos;
+        if(pos == -1){
+            cout << "Movie name: " << uit << " was not found" << endl << endl;
+        }
+        else{
+            cout<<"Title: "<< movie_list[pos].movie_name<<endl;
+            cout<<"Year: "<< movie_list[pos].year<<endl;
+            cout<<"Revenue: "<< movie_list[pos].revenue<<endl;
+        }
+        // if(!cin)
+        //     cin.ignore();
         cout << "Do you want to continue[y/n]?:";
 		cin >> ans;
 	}while (ans == 'y' || ans == 'Y');
@@ -61,7 +71,20 @@ void storeMoviesArray(ifstream& inFile, Movies topMovies[], const int SIZE)
 
 void sortMoviesTitle(Movies topMovies[], const int SIZE)
 {
+    Movies temp;
     
+    for (int i = 0; i < SIZE; ++i)
+	{
+		for(int j = 0; j < SIZE - i - 1; ++j)
+		{
+			if (topMovies[j].movie_name > topMovies[j + 1].movie_name)
+			{
+				temp = topMovies[j];
+				topMovies[j] = topMovies[j + 1];
+				topMovies[j + 1] = temp;
+			}
+		}
+	}
 }
 
 void printMoviesArray(Movies topMovies[], const int SIZE)
@@ -83,20 +106,18 @@ int findMovieTitle(Movies topMovies[], const int SIZE, string title)
     int low = 0;
     int upr = SIZE - 1;
     while (low <= upr) {
-        int mid = low + (upr - low) / 2;
+        int mid = (low + upr) / 2;
         if (title == topMovies[mid].movie_name){
-            cout<<title<<" has been found in spot: "<<mid + 1<<endl<<endl;
             return mid;
-            break;
         }
             
         else if (title.compare( topMovies[mid].movie_name) > 0)
             low = mid + 1;
             
-        else if(title.compare( topMovies[mid].movie_name) < 0)
+        else
             upr = mid - 1;
-        else{
-            return -1;
-        }
+        
     }    
+
+    return -1;
 }
