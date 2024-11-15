@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+public:
+    BankAccount();
+    BankAccount(string name, double amm);
+    
+    string getaccountHolder() const;
+    double getbalance() const;
+    
+    void setaccountHolder(string name);
+    void set(double amm);
+
+private:
+    string accountHolder;
+    double balance;
+};
+//------------------------------------------------------------------------------------
+BankAccount::BankAccount() {
+    accountHolder = "";
+    balance = 0.0;
+}
+
+BankAccount::BankAccount(string name, double amm) {
+    accountHolder = name;
+    balance = amm;
+}
+
+double BankAccount::getaccountHolder() const {
+    return accountHolder;
+}
+
+double BankAccount::getLength() const {
+    return balance;
+}
+
+void BankAccount::setaccountHolder(string name) {
+    accountHolder = name;
+}
+
+void BankAccount::setLength(double amm) {
+    balance = amm;
+}
+
+int main{
+
+}
